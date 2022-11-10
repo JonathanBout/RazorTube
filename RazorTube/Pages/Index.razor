@@ -1,0 +1,30 @@
+﻿@page "/"
+@inject VideoService Videos
+<PageTitle>RazorTube</PageTitle>
+<div id="videos">
+    @foreach (var video in Videos.GetVideos())
+    {
+        <table class="video round">
+            <tr>
+                <td>
+                    <img class="thumbnail" src="@video.ThumbnailUrl" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h1>
+                        @video.Title
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td class="channelinfo">
+                    <img class="channelIcon" src="@video.ChannelIconUrl"/>
+                    <h2>
+                        @video.ChannelName
+                    </h2>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
