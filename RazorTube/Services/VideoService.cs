@@ -9,10 +9,13 @@ namespace RazorTube.Services
         public Video[] GetVideos()
         {
             var videos = new List<Video>();
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 20; i++)
             {
-                int width = 1600 + Random.Shared.Next(-8, 8);
-                int height = 900 + Random.Shared.Next(-5, 5);
+                double multiplier = Random.Shared.NextDouble();
+                multiplier = multiplier * 1.5 + 0.5;
+                //multiplier;// *= Random.Shared.NextDouble() / double.MaxValue * 9.0 + 1.0;
+                int width = (int)(1600.0 * multiplier);
+                int height = (int)(900.0 * multiplier);
                 videos.Add(new Video
                 {
                     Description = RandomString(100),
